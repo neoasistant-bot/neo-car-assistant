@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Neo Car Assistant</string>
+    <string name="add_car">Agregar Auto</string>
+    <string name="my_cars">Mis Autos</string>
+    <string name="brand">Marca</string>
+    <string name="model">Modelo</string>
+    <string name="kilometers">Kilómetros</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="no_cars">No tenés autos registrados</string>
+    <string name="add_first_car">¡Agregá tu primer auto!</string>
+    <string name="notification_channel_name">Recordatorios de Servicio</string>
+    <string name="notification_channel_desc">Notificaciones sobre servicios pendientes de tus autos</string>
+</resources>
