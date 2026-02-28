@@ -1,0 +1,38 @@
+# Docker Compose para desarrollo local con Supabase CLI
+# Usar junto con: supabase start
+# Documentación: https://supabase.com/docs/guides/cli/local-development
+
+version: '3.8'
+
+services:
+  # La app Next.js — desarrollo local
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile.dev  # a crear cuando se necesite
+    ports:
+      - '3000:3000'
+    environment:
+      - NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+    depends_on:
+      - supabase-db
+
+  # Supabase local (alternativa al Supabase CLI)
+  # Nota: Se recomienda usar `supabase start` en vez de esto
+  supabase-db:
+    image: supabase/postgres:15.1.0.117
+    ports:
+      - '54322:5432'
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - supabase-db-data:/var/lib/postgresql/data
+      - ./supabase/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+
+volumes:
+  supabase-db-data:

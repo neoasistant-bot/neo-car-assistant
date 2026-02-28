@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables CSS globales */
+:root {
+  --automotive-blue: #1565C0;
+  --alert-red: #D32F2F;
+  --alert-yellow: #F9A825;
+  --alert-green: #388E3C;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
