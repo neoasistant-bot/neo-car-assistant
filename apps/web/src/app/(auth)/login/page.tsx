@@ -99,6 +99,14 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               sx={{ mb: 2 }}
               autoComplete="email"
+              InputLabelProps={{ shrink: email.length > 0 || undefined }}
+              sx={{
+                mb: 2,
+                '& input:-webkit-autofill': {
+                  WebkitBoxShadow: '0 0 0 100px #fff inset',
+                  WebkitTextFillColor: '#000',
+                },
+              }}
             />
             <TextField
               label="Contraseña"
@@ -107,8 +115,15 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              sx={{ mb: 3 }}
               autoComplete="current-password"
+              InputLabelProps={{ shrink: password.length > 0 || undefined }}
+              sx={{
+                mb: 3,
+                '& input:-webkit-autofill': {
+                  WebkitBoxShadow: '0 0 0 100px #fff inset',
+                  WebkitTextFillColor: '#000',
+                },
+              }}
             />
 
             <Button
